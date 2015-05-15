@@ -1,6 +1,8 @@
 Quipper Tech Team Blog
 ======================
 
+http://quipper.github.io
+
 The Quipper Tech Team Blog is written in [Jekyll](http://jekyllrb.com/) and uses the [Mediator](http://jekyllthemes.org/themes/mediator/) theme with a few tweaks here and there.
 
 ### Adding posts
