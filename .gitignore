@@ -1,0 +1,10 @@
+.bundle
+log/
+tmp/
+.sass-cache/
+public/system
+dump.rdb
+.idea
+.DS_Store
+_site/
+.jekyll-metadata

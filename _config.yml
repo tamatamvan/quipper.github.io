@@ -1,0 +1,65 @@
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+gems:
+  - jemoji
+
+# Site settings
+title: Quipper Tech Team
+description: > # this means to ignore newlines until "email:"
+   We make amazing things.
+
+email: infra@quipper.com
+
+#blog logo
+logo: "/assets/images/logo.png"
+
+# blog cover
+cover: "/assets/images/background_image.jpg"
+
+name: 'Quipper Ltd'
+author: 'Tomo Nakano'
+author_image: "/assets/images/author.jpg"
+
+paginate:	5
+
+url: "http://quipper.github.io" # the base hostname & protocol for your site
+baseurl: ""
+
+# social icons and sharing options
+social:
+  - icon:	twitter
+    url:	https://twitter.com/quipperschool
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
+#  - icon:	facebook
+#    url:	https://facebook.com/???
+#    desc: Connect with me facebook
+#    share_url: https://www.facebook.com/sharer.php
+#    share_title: ?t=
+#    share_link: "&amp;u="
+
+  - icon:	github
+    url:	https://github.com/quipper
+    share_url:
+    share_title:
+    share_link:
+
+#  - icon:	google-plus
+#    url:	https://google.com/???
+#    desc:	Add me on google+
+#    share_url:
+#    share_title:
+#    share_link:
+
+
+# If you want to contribute to the blog, please add your details here.
+
+authors:
+  seth:
+    name: Seth Jeffery
+    image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.jpg
+
+  tomo:
