@@ -60,6 +60,4 @@ social:
 authors:
   seth:
     name: Seth Jeffery
-    image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.jpg
-
-  tomo:
+    image: https://avatars3.githubusercontent.com/u/1628558?s=160
