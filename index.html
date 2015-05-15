@@ -51,7 +51,7 @@ layout: default
 
               {% if post.comments %}
                 &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="{{ post.url }}#disqus_thread"></a>
+                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}#disqus_thread"></a>
               {% endif %}
             </div>
           </div>
