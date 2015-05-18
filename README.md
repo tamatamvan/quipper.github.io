@@ -26,7 +26,7 @@ comments: true (if you want to include disqus comments, which is highly recommen
 ---
 ```
 
-Once you have finished writing your post, it is recommended that you submit it as a Pull Request for another to proof-read.
+Once you have finished writing your post, you can commit it directly to the `master` branch, unless you do want others to review your writing first, in which case you can create a pull request.
 
 ![image](https://cloud.githubusercontent.com/assets/1628558/7653286/7463b458-fb0c-11e4-8d9a-a109d9061719.png)
 
