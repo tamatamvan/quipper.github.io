@@ -39,7 +39,7 @@ At first you may be tempted to just define a new factory. The following code pas
 
 {% highlight ruby %}
 FactoryGirl.define do
-  factory :organization_without_tutorial do
+  factory :organization_without_tutorial, class: Organization do
     read_tutorial   false
   end
 end
