@@ -7,7 +7,8 @@ comments: true
 image: /assets/article_images/2015-06-03-modifying-factories/factory.jpg
 ---
 
-We use factories *a lot* in our development team. In fact we have a whole gem dedicated to providing core business models and their factories.
+We use [FactoryGirl](https://github.com/thoughtbot/factory_girl) *a lot* in our development team.
+In fact we have a whole gem dedicated to providing core business models and their factories.
 
 But sometimes our apps need to extend their functionality. Perhaps it's expecting some extra default values,
 it may be extending the models themselves with before and after filters, and so on.
