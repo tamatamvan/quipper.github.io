@@ -19,7 +19,7 @@ with something as simple as.
 
 ```
 git fetch
-git rebase origin/develop
+git rebase origin/develop my_branch
 # fix conflicts
 git push origin my_branch -f
 ```
@@ -63,7 +63,7 @@ Then, voila!
 
 ```
 git fetch
-git rebase --onto origin/develop 372533c
+git rebase --onto origin/develop 372533c my_branch
 # fix conflicts
 git push origin my_branch -f
 ```
