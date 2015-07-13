@@ -63,7 +63,7 @@ Then, voila!
 
 ```
 git fetch
-git rebase --onto origin/develop 372533c my_branch
+git rebase --onto origin/develop 372533c~1 my_branch
 # fix conflicts
 git push origin my_branch -f
 ```
