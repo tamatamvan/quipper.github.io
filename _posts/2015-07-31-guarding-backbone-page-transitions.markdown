@@ -55,7 +55,7 @@ Handlers can be attached using the following code:
 
 {% highlight coffeescript %}
 guardPage = (e) -> 'Your new changes will be lost.'
-dontGuardPage = (e) -> nul
+dontGuardPage = (e) -> null
 
 # Will guard page transition
 $(window).on('beforepopstate beforepushstate', guardPage)
