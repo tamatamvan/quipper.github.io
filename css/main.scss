@@ -54,6 +54,7 @@ body {
   .logo {
     display: block;
     position: absolute;
+    z-index: 100;
     top: $rs / 4;
     left: $rs / 4;
     width: $rs * 3;
@@ -64,8 +65,17 @@ body {
   }
 
   &:hover {
-    animation: crazy-color-cycle 0.5s infinite linear;
-    -webkit-animation: crazy-color-cycle 0.5s infinite linear;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      -webkit-animation: crazy-color-cycle 0.5s infinite linear;
+         -moz-animation: crazy-color-cycle 0.5s infinite linear;
+              animation: crazy-color-cycle 0.5s infinite linear;
+    }
   }
 
   &:active {
@@ -791,6 +801,20 @@ pre {
 }
 
 @-webkit-keyframes crazy-color-cycle {
+  0% { background-color: black; }
+  10% { background-color: deeppink; }
+  20% { background-color: green; }
+  30% { background-color: orangered; }
+  40% { background-color: yellow; }
+  50% { background-color: $primary; }
+  60% { background-color: gray; }
+  70% { background-color: purple; }
+  80% { background-color: orange; }
+  90% { background-color: red; }
+  100% { background-color: black; }
+}
+
+@-moz-keyframes crazy-color-cycle {
   0% { background-color: black; }
   10% { background-color: deeppink; }
   20% { background-color: green; }
