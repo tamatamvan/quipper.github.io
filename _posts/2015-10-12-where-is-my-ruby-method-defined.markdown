@@ -21,7 +21,7 @@ After the initial panic wears off, the sane thing to do in this situation is to 
 Fortunately, Ruby 1.9+ allows us to find exactly where a method is defined: `source_location` !
 
 {% highlight ruby %}
-Chapter.new.methods(:present?).source_location
+Chapter.new.method(:present?).source_location
  => [".../gems/activesupport-4.1.12/lib/active_support/core_ext/object/blank.rb", 16]
 {% endhighlight %}
 
