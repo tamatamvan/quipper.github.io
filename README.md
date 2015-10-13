@@ -5,6 +5,16 @@ http://quipper.github.io
 
 The Quipper Tech Team Blog is written in [Jekyll](http://jekyllrb.com/) and uses the [Mediator](http://jekyllthemes.org/themes/mediator/) theme with a few tweaks here and there.
 
+### Running locally
+
+Start the local Jekyll server like so:
+
+```
+jekyll serve
+```
+
+More info here: https://jekyllrb.com/docs/usage/
+
 ### Adding posts
 
 Adding posts to the blog is really easy! You can even do it right here in Github.  
