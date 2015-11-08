@@ -9,14 +9,14 @@ comments: true
 Today I introduce a system that we call **Shadow Proxy**, which is released recently in our development environment.
 
 ## What's Shadow Proxy?
-**Shadow Proxy** makes a HTTP request, which is copied from a request to production, to staging applications.
+**Shadow Proxy** makes an HTTP request, which is copied from a request to production, to staging applications.
 It means that it is possible to apply requests that are the same quality of production.
-The purpose of this system is to check beforehand the impact of modifying a index of MongoDB.
-Our service has been running for more than two years, and the data size has been enormous.
-Therefore we have to take care to **add**/**remove**/**forget** a index because it might affect serious problem to production.
+The purpose of this system is to check beforehand the impact of modifying an index on MongoDB.
+Our service has been running for more than two years, and the data size is now enormous.
+Therefore we have to take care to **add**/**remove**/**forget** a index because it might cause a serious problem on production.
 
 This system consists of [Fluentd](http://www.fluentd.org/)(td-agent) and its [plugins](http://www.fluentd.org/plugins).
-Fluentd is open source data collector. It has a robustness and flexibility.
+Fluentd is an open-source data collector. It has robustness and flexibility.
 [td-agent](http://docs.fluentd.org/articles/install-by-rpm) is the stable distribution of Fluentd, which is provided
 by [Treasure Data, Inc](http://www.treasuredata.com/).
 
@@ -31,7 +31,7 @@ by [forward Output Plugin](http://docs.fluentd.org/articles/out_forward).
 ### Log Aggregator
 A hub of the log stream. It receives access logs by [forward Input Plugin](http://docs.fluentd.org/articles/in_forward)
 and forwards logs to [Google BigQuery](https://cloud.google.com/bigquery/), [Amazon S3](https://aws.amazon.com/s3/)
-and Shadow Proxy by [BigQuery Output Plugin](), [S3 Output Plugin](http://docs.fluentd.org/articles/out_s3) and forward Output Plugin.
+and Shadow Proxy by [BigQuery Output Plugin](https://github.com/kaizenplatform/fluent-plugin-bigquery), [S3 Output Plugin](http://docs.fluentd.org/articles/out_s3) and forward Output Plugin.
 
 ### Shadow Proxy
 Receive access logs from Log Aggregator and make HTTP requests from logs
@@ -55,7 +55,7 @@ by [http shadow Output Plugin](https://github.com/quipper/fluent-plugin-http_sha
   cookie_key cookie
   body_key request_body
 
-  # Relate staging hosts to production hosts
+  # Resolve staging hosts
   host_hash {
     "a-production-app-1.quipper.com": "a-staging-app-1.quipper.com",
     "a-production-app-2.quipper.com": "a-staging-app-2.quipper.com"
@@ -90,14 +90,14 @@ by [http shadow Output Plugin](https://github.com/quipper/fluent-plugin-http_sha
 </match>
 ```
 
-When Shadow Proxy receives a following input, 
+When Shadow Proxy receives the following input, 
 
 ```
 nginx.access: {
   "domain":"a-production-app-1.quipper.com",
   "method":"POST",
   "path":"/some/path",
-  "referer":"https://a-production-app-a.quipper.com",
+  "referer":"https://a-production-app-1.quipper.com",
   "agent":"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36",
   "content_type":"application/json",
   "cookie":"name1=value1, name2=value2",
@@ -106,12 +106,12 @@ nginx.access: {
 }
 ```
 
-it will send a following HTTP request to `a-staging-app-1.quipper.com`.
+it will send the following HTTP request to `a-staging-app-1.quipper.com`.
  
 ```
 POST /some/path HTTP/1.1
 Host: a-staging-app-1.quipper.com
-Referer: https://a-production-app-a.quipper.com
+Referer: https://a-production-app-1.quipper.com
 User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36
 Authorization: xxxxxxxxxxxxxxxxxxxx
 Content-Type: application/json
@@ -120,6 +120,6 @@ Cookie: name1=value1, name2=value2
 ```
 
 ## Summary
-- We released **Shadow Proxy** to check the impact to MongoDB before a index in production is modified.
-- Shadow proxy makes a HTTP request from Nginx access log in production by Fluentd plugin.
+- We released **Shadow Proxy** to check the impact on MongoDB before an index on production is modified.
+- Shadow proxy makes an HTTP request from Nginx access log in production by Fluentd plugin.
 - Fluentd is really useful!
