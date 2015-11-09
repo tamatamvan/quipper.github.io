@@ -6,12 +6,12 @@ author: kamatama41
 comments: true
 ---
 
-Today I introduce a system that we call **Shadow Proxy**, which is released recently in our development environment.
+Today, I will introduce a system that we call **Shadow Proxy**, which is released recently in our development environment.
 
 ## What's Shadow Proxy?
 **Shadow Proxy** makes an HTTP request, which is copied from a request to production, to staging applications.
-It means that it is possible to apply requests that are the same quality of production.
-The purpose of this system is to check beforehand the impact of modifying an index on MongoDB.
+It means that it is possible to apply requests to staging that are the same quality of production.
+The main purpose of this system is to check beforehand the impact of modifying an index on MongoDB.
 Our service has been running for more than two years, and the data size is now enormous.
 Therefore we have to take care to **add**/**remove**/**forget** a index because it might cause a serious problem on production.
 
@@ -22,10 +22,10 @@ by [Treasure Data, Inc](http://www.treasuredata.com/).
 
 ## Architecture
 
-![Image](https://cloud.githubusercontent.com/assets/899217/11015974/79abd19a-85b6-11e5-93b2-20a466de176d.png)
+![Image](https://cloud.githubusercontent.com/assets/899217/11035957/da75a8b0-8738-11e5-87db-2544349ab659.png)
 
 ### Reverse Proxy
-Proxy HTTP requests to production by Nginx. It forwards access logs to Log Aggregator
+Proxies HTTP requests to production by Nginx. It forwards access logs to Log Aggregator
 by [forward Output Plugin](http://docs.fluentd.org/articles/out_forward).
 
 ### Log Aggregator
@@ -34,8 +34,14 @@ and forwards logs to [Google BigQuery](https://cloud.google.com/bigquery/), [Ama
 and Shadow Proxy by [BigQuery Output Plugin](https://github.com/kaizenplatform/fluent-plugin-bigquery), [S3 Output Plugin](http://docs.fluentd.org/articles/out_s3) and forward Output Plugin.
 
 ### Shadow Proxy
-Receive access logs from Log Aggregator and make HTTP requests from logs
-by [http shadow Output Plugin](https://github.com/quipper/fluent-plugin-http_shadow). We forked the original and added some features.
+Receives access logs from Log Aggregator and makes HTTP requests from logs
+by [http shadow Output Plugin](https://github.com/quipper/fluent-plugin-http_shadow).
+
+We forked the original and added some features.
+
+- Make request body and cookie sendable 
+- Make the rate of sending for each target host adjustable 
+- More details are to see [here](https://github.com/quipper/fluent-plugin-http_shadow/pulls?q=).
 
 `td-agent.conf` of Shadow Proxy is like below.
 
