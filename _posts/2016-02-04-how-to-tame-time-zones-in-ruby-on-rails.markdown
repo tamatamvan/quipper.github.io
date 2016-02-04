@@ -32,7 +32,7 @@ When this happens, try to check the test code first. If the tests still fail, th
 
 ## Take advantage of Time.use_zone
 
-When writing time zone-sensitive code, [Time.use_zone](http://api.rubyonrails.org/classes/Time.html#method-c-use_zone) is one of your best friends. This method overrides the setting in `Time.zone` when doing time-based calculations inside the block.
+When writing time zone-sensitive code, [Time.use_zone](http://api.rubyonrails.org/classes/Time.html#method-c-use_zone) is your best friend. This method overrides the setting in `Time.zone` when doing time-based calculations inside the block.
 
 For example:
 
