@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to Tame Time Zones in Ruby on Rails"
-date:   2016-02-04 09:00:00
+date:   2016-02-11 09:00:00
 author: kjcpaas
 comments: true
 image: /assets/article_images/2016-02-04-how-to-tame-time-zones-in-ruby-on-rails/timezones.jpg
@@ -13,9 +13,49 @@ Time zones exist because of the Earth's rotation. In some parts of the world, it
 
 However, there is no need to worry! Working with timezone is not as difficult as it initially looks. Below is a list of some techniques that can be used in Ruby on Rails.
 
+## How to set time zone
+
+Before we proceed, how Ruby on Rails determines time zones must be know first.
+
+There are 2 ways of doing this.
+
+### In config/application.rb
+
+{% highlight ruby %}
+module MyApp
+  class Application < Rails::Application
+    config.time_zone = 'Central Time (US & Canada)'
+
+    # ...
+  end
+end
+{% endhighlight %}
+
+The default setting is `UTC` (and I personally like keeping it as is, as you can see later). You can get the list of complete timezones by running `rake time:zones:all`.
+
+### Setting Time.zone
+
+In contrast to setting time zone in `config/application.rb`, setting Time.zone can be done anywhere within the application. When taking into account multiple time zones, be more careful about setting this in many places in the application as it is easy to lose track of the current time zone.
+
 ## Times in database must be in UTC
 
 This is important since time zones are expressed using positive or negative offsets to UTC (e.g. UTC+8:00, UTC-5:00). In addition, Ruby has a built-in method to convert time to UTC ([Time#utc](http://ruby-doc.org/core-2.2.0/Time.html#method-i-utc)).
+
+The main reason why I prefer keeping the default timezone as UTC is that much easier to keep the time zone consistent with the UTC dates and time in the database.
+
+Also, when database times are in UTC, there is no need to consider DST switching when converting times to another time zone. When using a time zone that implements DST, there is a time (usually each year) when clocks are turned *backward* 1 hour (number of hours depends on place also). Due to this, there are days when the some times occur twice. For example, in [Washington DC](http://www.timeanddate.com/time/change/usa/washington-dc), 1:00 AM - 1:59 AM will happen twice when DST ends. It is hard to map this time correctly to other timezones. However, if the database time is in UTC, this is not problem since DST is not implemented for UTC.
+
+## Use in\_time\_zone to convert time to another time zone
+
+Instead of changing `Time.zone` to convert a time in another time zone, just use `in_time_zone`.
+
+{% highlight ruby %}
+Time.now
+# => 2016-02-11 17:51:31 +0800
+
+Time.now.in_time_zone('EST')
+# => Thu, 11 Feb 2016 04:51:38 EST -05:00
+{% endhighlight %}
 
 ## Use time zone-sensitive methods
 
