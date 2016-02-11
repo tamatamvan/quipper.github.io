@@ -9,13 +9,13 @@ image: /assets/article_images/2016-02-04-how-to-tame-time-zones-in-ruby-on-rails
 
 Quipper is a global company. Our developer teams are located in 3 different cities around the world: London, Tokyo, Manila. When it is 9AM in London, it is 5PM in Manila, and 6PM in Tokyo. In addition, we also service Mexico and Indonesia. All in all, there are at least 5 time zones we need to consider in development.
 
-Time zones exist because of the Earth's rotation. In some parts of the world, it is morning, while it is evening in others. Despite how natural time zones are, many developers struggle with writing code that deals with the time differences due to time zones. It's much more tricky once [daylight saving time](https://en.wikipedia.org/wiki/Daylight_saving_time), which is implemented in some countries, is taken into consideration.
+Time zones exist because of the Earth's rotation. In some parts of the world, it is morning, while it is evening in others. Despite how natural time zones are, many developers struggle with writing code that deals with the time differences due to time zones. It's much more tricky once [daylight saving time](https://en.wikipedia.org/wiki/Daylight_saving_time), which is implemented in some countries, is taken into consideration. To make matters more complex, it could be _another day_ (or even _another year_!) in a different time zone, i.e. Thursday night in London is Friday morning in Manila.
 
 However, there is no need to worry! Working with timezone is not as difficult as it initially looks. Below is a list of some techniques that can be used in Ruby on Rails.
 
 ## How to set time zone
 
-Before we proceed, how Ruby on Rails determines time zones must be know first.
+Before we proceed, how Ruby on Rails determines time zones must be known first.
 
 There are 2 ways of doing this.
 
@@ -41,7 +41,7 @@ In contrast to setting time zone in `config/application.rb`, setting Time.zone c
 
 This is important since time zones are expressed using positive or negative offsets to UTC (e.g. UTC+8:00, UTC-5:00). In addition, Ruby has a built-in method to convert time to UTC ([Time#utc](http://ruby-doc.org/core-2.2.0/Time.html#method-i-utc)).
 
-The main reason why I prefer keeping the default timezone as UTC is that much easier to keep the time zone consistent with the UTC dates and time in the database.
+The main reason why I prefer keeping the default timezone as UTC is because it is much easier to keep the time zone consistent with the UTC dates and time in the database.
 
 Also, when database times are in UTC, there is no need to consider DST switching when converting times to another time zone. When using a time zone that implements DST, there is a time (usually each year) when clocks are turned *backward* 1 hour (number of hours depends on place also). Due to this, there are days when the some times occur twice. For example, in [Washington DC](http://www.timeanddate.com/time/change/usa/washington-dc), 1:00 AM - 1:59 AM will happen twice when DST ends. It is hard to map this time correctly to other timezones. However, if the database time is in UTC, this is not problem since DST is not implemented for UTC.
 
