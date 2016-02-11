@@ -21,9 +21,9 @@ This is important since time zones are expressed using positive or negative offs
 
 Prefer the use of `Time.zone.now` to `Time.now`. Similarly, prefer the use of `Date.current` to `Date.today`. `Time.zone.now` and `Date.current` return the correct values based on the time zone set in `Time.zone` in Ruby on Rails.
 
-On the other hand, `Time.now` and `Date.today` returns values based on the *machine's time zone*. As an example, since I am in Manila, `Time.now` will return Manila's local time in in UTC+8. Another developer who is in Tokyo who uses `Time.now`will get Tokyo's local time.
+On the other hand, `Time.now` and `Date.today` return values based on the *machine's time zone*. As an example, since I am in Manila, `Time.now` will return Manila's local time in UTC+8. Another developer who is in Tokyo who uses `Time.now` will get Tokyo's local time (UTC+9).
 
-Overlooking this fact can result to unstable code. In fact, we encounter this when running automated tests on [CircleCI](https://circleci.com/). There are some tests that pass or fail depending on the time of the day. Having this unstable tests could mean one or both of the following:
+Overlooking this fact can result to unstable code. In fact, we encounter this when running automated tests on [CircleCI](https://circleci.com/). There are some tests that pass or fail depending on the time of the day. Having these unstable tests could mean one or both of the following:
 
 - The test code is not time zone-sensitive
 - The code being tested itself is not time zone-sensitive (BAD!)
