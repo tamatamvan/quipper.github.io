@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to Tame Time Zones in Ruby on Rails"
-date:   2016-02-11 09:00:00
+date:   2016-02-12 09:00:00
 author: kjcpaas
 comments: true
 image: /assets/article_images/2016-02-04-how-to-tame-time-zones-in-ruby-on-rails/timezones.jpg
@@ -69,6 +69,22 @@ Overlooking this fact can result to unstable code. In fact, we encounter this wh
 - The code being tested itself is not time zone-sensitive (BAD!)
 
 When this happens, try to check the test code first. If the tests still fail, then most probably the problem is with the tested code.
+
+### Side note
+
+To encourage the use of `Date.current`, we went as far as monkey patching `Date.today` and `Date.tomorrow` in our `spec_helper`!
+
+{% highlight ruby %}
+class Date
+  def self.today
+    raise 'Use Date.current instead of Date.today'
+  end
+
+  def self.tomorrow
+    raise 'Use Date.current + 1.day instead of Date.tomorrow'
+  end
+end
+{% endhighlight %}
 
 ## Take advantage of Time.use_zone
 
