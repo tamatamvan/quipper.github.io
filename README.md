@@ -50,13 +50,11 @@ If you want to add images, you can upload them to the `assets/article_images` fo
 
 If you write code, use GFM to highlight it.
 
-```
-\`\`\`ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-\`\`\`
-```
+    ```ruby
+    def print_hi(name)
+      puts "Hi, #{name}"
+    end
+    ```
 
 ### Authors
 
