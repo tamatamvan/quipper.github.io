@@ -1,14 +1,13 @@
 # Build settings
-markdown: redcarpet
-highlighter: pygments
+markdown: kramdown
+highlighter: rouge
 gems:
   - jemoji
+  - jekyll-paginate
 
 # Site settings
 title: Quipper Tech Team
-description: > # this means to ignore newlines until "email:"
-   We make amazing things.
-
+description: We make amazing things.
 email: infra@quipper.com
 
 #blog logo
@@ -21,10 +20,15 @@ name: 'Quipper Ltd'
 author: 'Tomo Nakano'
 author_image: "/assets/images/author.jpg"
 
-paginate:	5
+paginate: 5
 
 url: "http://quipper.github.io" # the base hostname & protocol for your site
 baseurl: ""
+
+# markdown + syntax highlighting
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # social icons and sharing options
 social:

@@ -14,9 +14,9 @@ This confirmation is important in times when data might be lost when leaving a p
 
 Normally, this is done by:
 
-{% highlight coffeescript %}
+```coffeescript
 window.onbeforeunload = -> 'Your new changes will be lost.'
-{% endhighlight %}
+```
 
 However, Backbone applications are single-page applications. In this case, moving to another page in Backbone does not reload a page.
 
@@ -39,9 +39,9 @@ Since what we're trying to achieve is to guard page transition before it actuall
 
 After loading Backbone and jQuery, call
 
-{% highlight coffeescript %}
+```coffeescript
 Backbone.addBeforePopState(Backbone)
-{% endhighlight %}
+```
 
 This will override Backbone's default navigation methods to add mechanisms to trigger the above events.
 
@@ -53,7 +53,7 @@ One thing to keep in mind for handlers is that if it returns `null`, it will not
 
 Handlers can be attached using the following code:
 
-{% highlight coffeescript %}
+```coffeescript
 guardPage = (e) -> 'Your new changes will be lost.'
 dontGuardPage = (e) -> null
 
@@ -62,7 +62,7 @@ $(window).on('beforepopstate beforepushstate', guardPage)
 
 # Will not guard page transition (since handler returns null)
 $(window).on('beforepopstate beforepushstate', dontGuardPage)
-{% endhighlight %}
+```
 
 After this, pressing "Back" button and navigating by interacting with page elements are now guarded!
 
@@ -74,9 +74,9 @@ After this, pressing "Back" button and navigating by interacting with page eleme
 
 The same handlers can be used for `beforeunload` event
 
-{% highlight coffeescript %}
+```coffeescript
 $(window).on('beforepopstate beforepushstate beforeunload', guardPage)
-{% endhighlight %}
+```
 
 Finally, the page is fully guarded!
 
@@ -86,7 +86,7 @@ Finally, the page is fully guarded!
 
 - Events from backbone-beforepopstate have a `fragment` property. This is the URL fragment that the application would like to transition to. If only certain transitions should be permitted, this URL can be compared with the current URL to show the popup correctly.
 
-{% highlight coffeescript %}
+```coffeescript
 # Questionnaire path: `/question/:question_number`
 
 guardQuestionnaireExit = (e) ->
@@ -105,4 +105,4 @@ guardQuestionnaireExit = (e) ->
   return prompt unless questionnairePathRegex.exec(toUrl)
 
 $(window).on('beforepopstate beforepushstate beforeunload', guardQuestionnaireExit)
-{% endhighlight %}
+```

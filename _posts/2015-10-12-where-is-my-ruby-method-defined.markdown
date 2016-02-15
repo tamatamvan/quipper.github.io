@@ -9,10 +9,10 @@ image: /assets/article_images/2015-10-12-where-is-my-ruby-method-defined/junk.jp
 
 Recently I noticed that the `present?` method was exhibiting weird behaviour on one of our models.
 
-{% highlight ruby %}
+```ruby
 Chapter.new.present?
  => false # wut!?
-{% endhighlight %}
+```
 
 
 ## source_location
@@ -20,14 +20,14 @@ Chapter.new.present?
 After the initial panic wears off, the sane thing to do in this situation is to find out what `present?` is actually doing.
 Fortunately, Ruby 1.9+ allows us to find exactly where a method is defined: `source_location` !
 
-{% highlight ruby %}
+```ruby
 Chapter.new.method(:present?).source_location
  => [".../gems/activesupport-4.1.12/lib/active_support/core_ext/object/blank.rb", 16]
-{% endhighlight %}
+```
 
 So far so good. `present?` is defined by `ActiveSupport` just like we expect it to be. But let's confirm ActiveSupport's definition.
 
-{% highlight ruby %}
+```ruby
 def present?
   !blank?
 end
@@ -35,21 +35,21 @@ end
 def blank?
   respond_to?(:empty?) ? !!empty? : !self
 end
-{% endhighlight %}
+```
 
 And now back to our console again...
 
-{% highlight ruby %}
+```ruby
 Chapter.new.method(:empty?).source_location
  => [".../app/models/chapter.rb", 25]
-{% endhighlight %}
+```
 
 Aha! We do indeed have a bogus re-definition of ActiveSupport. A quick fix later and everything is behaving normally.
 
-{% highlight ruby %}
+```ruby
 Chapter.new.present?
  => true
-{% endhighlight %}
+```
 
 
 ## TIL

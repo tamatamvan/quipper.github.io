@@ -21,7 +21,7 @@ There are 2 ways of doing this.
 
 ### In config/application.rb
 
-{% highlight ruby %}
+```ruby
 module MyApp
   class Application < Rails::Application
     config.time_zone = 'Central Time (US & Canada)'
@@ -29,7 +29,7 @@ module MyApp
     # ...
   end
 end
-{% endhighlight %}
+```
 
 The default setting is `UTC` (and I personally like keeping it as is, as you can see later). You can get the list of complete timezones by running `rake time:zones:all`.
 
@@ -49,13 +49,13 @@ Also, when database times are in UTC, there is no need to consider DST switching
 
 Instead of changing `Time.zone` to convert a time in another time zone, just use `in_time_zone`.
 
-{% highlight ruby %}
+```ruby
 Time.now
 # => 2016-02-11 17:51:31 +0800
 
 Time.now.in_time_zone('EST')
 # => Thu, 11 Feb 2016 04:51:38 EST -05:00
-{% endhighlight %}
+```
 
 ## Use time zone-sensitive methods
 
@@ -74,7 +74,7 @@ When this happens, try to check the test code first. If the tests still fail, th
 
 To encourage the use of `Date.current`, we went as far as monkey patching `Date.today` and `Date.tomorrow` in our `spec_helper`!
 
-{% highlight ruby %}
+```ruby
 class Date
   def self.today
     raise 'Use Date.current instead of Date.today'
@@ -84,7 +84,7 @@ class Date
     raise 'Use Date.current + 1.day instead of Date.tomorrow'
   end
 end
-{% endhighlight %}
+```
 
 ## Take advantage of Time.use_zone
 
@@ -92,13 +92,13 @@ When writing time zone-sensitive code, [Time.use_zone](http://api.rubyonrails.or
 
 For example:
 
-{% highlight ruby %}
+```ruby
 Time.zone = 'UTC'
 Time.zone.now
 # => Thu, 04 Feb 2016 10:12:21 UTC +00:00
 
 Time.use_zone('Asia/Tokyo') { Time.zone.now }
 # => Thu, 04 Feb 2016 19:12:43 JST +09:00
-{% endhighlight %}
+```
 
 When the code inside the block is time zone-sensitive (correctly uses `Time.zone.now` and `Date.current`), accurate time zone switching can be easily achieved within an application!
