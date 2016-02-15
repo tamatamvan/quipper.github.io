@@ -48,15 +48,13 @@ If you want to add images, you can upload them to the `assets/article_images` fo
 
 ### Syntax highlighting
 
-If you write code, use the following to highlight it.
+If you write code, use GFM to highlight it.
 
-```
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-{% endhighlight %}
-```
+    ```ruby
+    def print_hi(name)
+      puts "Hi, #{name}"
+    end
+    ```
 
 ### Authors
 

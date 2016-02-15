@@ -23,13 +23,13 @@ Maybe Derek's just not a very thoughtful friend after all.
 Sadly this happens a lot in single-page apps. I've seen plenty of code that looks
 something like the following:
 
-{% highlight coffeescript %}
+```coffeescript
 class MainView extends Marionette.ItemView
   onRender: ->
     @model.fetch().done =>
       contentView = new ContentView(@model)
       @contentRegion.show(contentView)
-{% endhighlight %}
+```
 
 It seems harmless. But what if AJAX is late to the party? What if the model takes
 ages to fetch and the user decides to go to another part of the site? Eventually
@@ -55,19 +55,19 @@ assume that your view still exists, or the page state is what it was before.**
 
 The easiest measure is a quick and silent exit. This will prevent most JavaScript errors.
 
-{% highlight coffeescript %}
+```coffeescript
 class MainView extends Marionette.ItemView
   onRender: ->
     @model.fetch().done =>
       return if @isDestroyed
       contentView = new ContentView(@model)
       @contentRegion.show(contentView)
-{% endhighlight %}
+```
 
 Perhaps a cleaner measure is to stop using `$.Deferred()` callbacks altogether, since a model
 will send `sync` and `error` events after fetching.
 
-{% highlight coffeescript %}
+```coffeescript
 class MainView extends Marionette.ItemView
   modelEvents:
     sync: 'createContentView'
@@ -78,7 +78,7 @@ class MainView extends Marionette.ItemView
   createContentView: ->
     contentView = new ContentView(@model)
     @contentRegion.show(contentView)
-{% endhighlight %}
+```
 
 
 ## Even better, tell your guests to cancel.
@@ -90,7 +90,7 @@ XMLHttpRequests allow us to abort them. If we want to be very kind to our late a
 and thus our users, we could tell them to just give up and not bother any more.
 A very simple implementation is to track our requests and use the `abort()` method to cancel them.
 
-{% highlight coffeescript %}
+```coffeescript
 class MainView extends Marionette.ItemView
   modelEvents:
     sync: 'createContentView'
@@ -107,7 +107,7 @@ class MainView extends Marionette.ItemView
   createContentView: ->
     contentView = new ContentView(@model)
     @contentRegion.show(contentView)
-{% endhighlight %}
+```
 
 These are just a couple of tips to being a more considerate host. Above all, always remember
 that network calls can take any length of time, even living longer than the 

@@ -761,12 +761,12 @@ code {
   font-size: 14px;
   border: 1px solid #e8e8e8;
   border-radius: 3px;
-  background-color: #f0f0f0;
   line-height: 22px;
 }
 
 code {
   padding: 1px 5px;
+  background-color: #f0f0f0;
 }
 
 pre {
@@ -776,6 +776,7 @@ pre {
     border: 0;
     padding-right: 0;
     padding-left: 0;
+    background-color: transparent;
   }
 }
 

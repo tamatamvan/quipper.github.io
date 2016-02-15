@@ -15,7 +15,7 @@ it may be extending the models themselves with before and after filters, and so 
 
 If you tried to redeclare the factory you'd be in for some trouble.
 
-{% highlight ruby %}
+```ruby
 # models/organization.rb
 class Organization
   key :read_tutorial, Boolean  # we've extended our model to add a new key for this project
@@ -27,7 +27,7 @@ FactoryGirl.define do
     read_tutorial   false
   end
 end
-{% endhighlight %}
+```
 
 ```
 /factory_girl-4.5.0/lib/factory_girl/decorator.rb:10:in `method_missing':
@@ -38,13 +38,13 @@ end
 
 At first you may be tempted to just define a new factory. The following code passes.
 
-{% highlight ruby %}
+```ruby
 FactoryGirl.define do
   factory :organization_without_tutorial, class: Organization do
     read_tutorial   false
   end
 end
-{% endhighlight %}
+```
 
 But now we can't use `organization` any more in our app, we have to replace all usage to `organization_without_tutorial`!
 
@@ -52,13 +52,13 @@ But now we can't use `organization` any more in our app, we have to replace all 
 
 Fortunately, FactoryGirl offers us a new declaration that we don't often use so it's easy to miss it. `FactoryGirl.modify`
 
-{% highlight ruby %}
+```ruby
 FactoryGirl.modify do
   factory :organization do
     read_tutorial   false
   end
 end
-{% endhighlight %}
+```
 
 Success! It compiles and we're now able to add new functionality to our gem of models and factories.
 

@@ -20,7 +20,7 @@ and it'll make for shorter, more concise examples.
 
 So let's start with a typical controller and view as we may have once written it.
 
-{% highlight coffeescript %}
+```coffeescript
 class Controller extends Marionette.Controller
   show: ->
     @model = new Person
@@ -54,7 +54,7 @@ class PersonView extends Marionette.ItemView
     e.preventDefault()
     e.stopPropagation()
     # navigate to somewhere else
-{% endhighlight %}
+```
 
 ### Hook yourself up with some Triggers.
 
@@ -67,7 +67,7 @@ to control a view and respond to actions, just as a Rails app might do.
 
 Here's how it looks with triggers to replace the events.
 
-{% highlight coffeescript %}
+```coffeescript
 class Controller extends Marionette.Controller
   show: ->
     @model = new Person
@@ -99,15 +99,15 @@ class PersonView extends Marionette.ItemView
   triggers:
     'click @ui.save': 'click:save'
     'click @ui.cancel': 'click:cancel'
-{% endhighlight %}
+```
 
 So it looks like we've just moved some of the functions into the controller, and got rid of `preventDefault`
 and `stopPropagation` (because Marionette does that automatically for triggers). But now we've also got
 some DOM manipulation in the controller.
 
-{% highlight coffeescript %}
+```coffeescript
 args.view.$('.btn').addClass('disabled')
-{% endhighlight %}
+```
 
 That doesn't look right. The controller shouldn't be manipulating the DOM and making UI changes, because:
 
@@ -121,7 +121,7 @@ Whenever Marionette fires an event via `triggerMethod` which is what the `trigge
 it automatically checks if an `on` method exists for the trigger name, where each word is separated
 by colons. `do:something:cool` becomes `onDoSomethingCool`. Let's make use of that in the view.
 
-{% highlight coffeescript %}
+```coffeescript
 class PersonView extends Marionette.ItemView
   template: Tpl['person']
 
@@ -135,7 +135,7 @@ class PersonView extends Marionette.ItemView
 
   onClickSave: ->
     @ui.save.addClass('disabled')
-{% endhighlight %}
+```
 
 Thanks, triggers! So what's next?
 
@@ -151,7 +151,7 @@ One of the main jobs of a model is to be a mediator between View and Controller.
 events when models are saved or have problems, so we can use this to our advantage. Let's use
 `modelEvents` and stop listening to our `$.Deferred` response.
 
-{% highlight coffeescript %}
+```coffeescript
 class Controller extends Marionette.Controller
   show: ->
     @model = new Person
@@ -197,7 +197,7 @@ class PersonView extends Marionette.ItemView
 
   failed: ->
     # update UI as necessary
-{% endhighlight %}
+```
 
 It looks longer, but that's because we have now completely separated view from controller
 logic. Most of the implementation here is optional.
