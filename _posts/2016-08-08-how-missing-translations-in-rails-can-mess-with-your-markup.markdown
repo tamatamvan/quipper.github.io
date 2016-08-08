@@ -51,3 +51,11 @@ __The fix__
 After applying the simple fix, the images showed as expected!
 
 ![](https://cloud.githubusercontent.com/assets/3772828/17467365/191cc510-5d50-11e6-9a3e-5136f6c3a2c7.png)
+
+### Rails 5 Alternative
+
+If you are using Rails 5, you can also set this config in your `application.rb`.
+
+```ruby
+config.action_view.debug_missing_translation = false
+```
