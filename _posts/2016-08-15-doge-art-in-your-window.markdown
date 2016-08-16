@@ -59,9 +59,12 @@ It's also important to note, that some characters take different widths. This si
 *__TL;DR__ Put a size limit on your input fields! <sup>[2](#footnote2)</sup>*
 
 **Notes**
-
-<a name="footnote1">1</a>: I was actually thinking of ASCII, which has [128 characters](http://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode)
+<small>
+<a name="footnote1">1</a>: I was actually thinking of ASCII, which has [128 characters](http://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode)<br>
 <a name="footnote2">2</a>: MongoDB won't magically cure your text limit issues
+</small>
 
 **Credit**
+<small>
 Banner Photo: [Brian Bald](https://www.flickr.com/photos/brianbald/13917186505/)
+</small>
