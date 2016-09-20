@@ -49,4 +49,4 @@ Terraform v0.7.3
 ```
 
 ## Summary 
-[tfenv](https://github.com/kamatama41/tfenv) will make us happy when we use Terraform with multiple users or use it on multiple environments.
+[tfenv](https://github.com/kamatama41/tfenv) makes us happy when we use Terraform with multiple users or on multiple environments.
