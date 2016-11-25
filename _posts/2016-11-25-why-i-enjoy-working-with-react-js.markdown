@@ -8,9 +8,9 @@ comments: true
 
 ReactJS by Facebook is one of the most popular Javascript libraries nowadays.
 
-Many developers love it for many reasons, from efficiency to even its tools. I personally like because of how components are built in `jsx`. In one glance, one can easily see 3 very important things: how it looks like (in the DOM), how it internally works, and how it can connect to other components. As someone who loves building things and investigating how something works, this is a very, very important point for me.
+Many developers love it for many reasons, from efficiency to even its tools. I personally like it because of how components are built in `jsx`. In one glance, one can easily see 3 very important things: how it looks like (in the DOM), how it internally works, and how it can connect to other components. As someone who loves building things and investigating how something works, this is a very, very important point for me.
 
-Let's consider a toggle button. It's React component code will look like below:
+Let's consider a toggle button. Its React component code will look like below:
 
 ```jsx
 // components/ToggleButton.jsx
@@ -111,7 +111,7 @@ Default values of `props` can be set by `defaultProps`, while the types can be r
 
 ### Lifecycle
 
-There are 3 major steps in React's component lifecycle: **mounting**, **updating**, and **unmounting**. It's straightforward and easy to understand because of the use of `will` and `did` in method names for methods that gets executed around `render`.
+There are 3 major steps in React's component lifecycle: **mounting**, **updating**, and **unmounting**. It's straightforward and easy to understand because of the use of `will` and `did` in method names for methods that get executed around `render`.
 
 Detailed information about React's component lifecycle can be found in the [docs](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle).
 
