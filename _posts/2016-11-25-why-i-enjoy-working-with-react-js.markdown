@@ -95,7 +95,7 @@ However, the biggest benefit of having the markup with the same file as the logi
 
 ## How it internally works
 
-Abstraction is very important in software engineering, in general. However, there are times when developers need to dive deeper in to the code to investogate a bug, or enhance a feature. Hence, developers need to easily understand how a component works internally.
+Abstraction is very important in software engineering, in general. However, there are times when developers need to dive deeper in to the code to investigate a bug, or enhance a feature. Hence, developers need to easily understand how a component works internally.
 
 To understand how a React component works, one must know its properties and lifecycle.
 
@@ -111,7 +111,7 @@ Default values of `props` can be set by `defaultProps`, while the types can be r
 
 ### Lifecycle
 
-The are 3 major steps in React's component lifecycle: **mounting**, **updating**, and **unmounting**. It's straightforward and easy to understand because of the use of `will` and `did` in method names for methods that gets executed around `render`.
+There are 3 major steps in React's component lifecycle: **mounting**, **updating**, and **unmounting**. It's straightforward and easy to understand because of the use of `will` and `did` in method names for methods that gets executed around `render`.
 
 Detailed information about React's component lifecycle can be found in the [docs](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle).
 
