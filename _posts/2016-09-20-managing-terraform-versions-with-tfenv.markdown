@@ -19,7 +19,7 @@ It's really easy! We just check out the repository and add `tfenv/bin` to our `P
 
 ```sh
 $ git clone https://github.com/kamatama41/tfenv.git ~/.tfenv
-$ echo 'export PATH="$HOME/.tfnev/bin:$PATH"' >> ~/.bash_profile
+$ echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bash_profile
 ```
 
 ## tfenv install
