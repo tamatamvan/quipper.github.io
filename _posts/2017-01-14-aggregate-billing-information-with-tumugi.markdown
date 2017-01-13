@@ -6,7 +6,7 @@ author: kamatama41
 comments: true
 ---
 
-Today technology companies use a lot of cloud services to accelerate their business, of course Quipper is also.
+Today internet companies use a lot of cloud services to accelerate their business, of course Quipper is also.
 We are using Heroku, AWS, GCP and so on. 
 
 TODO: image for cloud service icons that we are using.
