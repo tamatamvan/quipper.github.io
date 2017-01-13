@@ -7,10 +7,11 @@ comments: true
 ---
 
 Today technology companies use a lot of cloud services to accelerate their business, of course Quipper is also.
-We are using Heroku, AWS, GCP and so on. In using them, cost management is one of the biggest concern for us.
+We are using Heroku, AWS, GCP and so on. 
 
 TODO: image for cloud service icons that we are using.
 
+In using them, cost management is one of the biggest concern for us.
 As the straightforward approach, we can see the billing page on each website every month,
 but it's quite troublesome if we have to go around more than 10 websites.
 
