@@ -65,5 +65,5 @@ As shown in the table, there are still some cases in which the estimated time is
 From solving this problem, we can learn the following things:
 
 - Video conversion does not only affect the video quality or size, but also the time.
-- Part of a good UI is consistency in the displayed information. No matter how good-looking the UI is, if the information displayed is inconsistent, it ca cause a lot of confusion.
+- Part of a good UI is consistency in the displayed information. No matter how good-looking the UI is, if the information displayed is inconsistent, it can cause a lot of confusion.
 - Even though web developers don't usually use Math in their line of work, they should be prepared to apply the concept to solve the problems encountered.
