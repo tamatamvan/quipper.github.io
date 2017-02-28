@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Estimating video duration by Linear Regression"
+title:  "Estimating Video Duration by Linear Regression"
 date:   2017-03-03 10:00:00
 author: kjcpaas
 comments: true
