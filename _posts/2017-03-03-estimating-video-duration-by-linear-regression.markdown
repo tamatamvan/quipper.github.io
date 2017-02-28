@@ -28,13 +28,13 @@ This is the one we uploaded to Brightcove. Its video duration is the one that ca
 
 - Converted Video
 
-Once the video is uploaded, it gets converted by Brightcove to be compatible with their player. Due to the conversion process, the video duration cannot be exactly the same as the source videos. The time of this converted video is the one shown in the video player.
+Once the video is uploaded, it gets converted by Brightcove to be compatible with their player. Due to the conversion process, the converted video duration cannot be exactly the same as the source video's. The time of this converted video is the one shown in the video player.
 
 ## Observations
 
 We observed other videos and found some patterns:
 
-1. Converted video duration is **longer** than source video duration.i
+1. Converted video duration is **longer** than source video duration.
 2. The time difference is **proportional** to the video duration. This means that the difference in duration is smaller when the video is short, and gets bigger as the video gets longer.
 
 This relationship can be visualized by a graph:
