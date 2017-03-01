@@ -45,7 +45,7 @@ The actual relationship might not be linear at all but for the usual duration ra
 
 ## Solution
 
-The approach was to find the line that would best fit the relationship between the source video duration and the converted video duration. We got some sample videos are plotted their duration in a table.
+The approach was to find the line that would best fit the relationship between the source video duration and the converted video duration. We got some sample videos and plotted their duration in a table.
 
 From this, we got the best fit line with the equation `y = 1.002x + 0.4253`, where `y` is **converted video duration**, and `x` is **source video duration**.
 
