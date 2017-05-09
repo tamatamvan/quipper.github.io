@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "React/Redux for the uninitiated"
-date: 2017-03-27 11:00:00
+title: "React/Redux for foreigners"
+date: 2017-05-01 11:00:00
 author: kristm
 comments: true
 image: https://c2.staticflickr.com/4/3294/2298750408_57553092a6_o.jpg
