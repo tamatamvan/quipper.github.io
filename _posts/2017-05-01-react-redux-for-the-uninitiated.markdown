@@ -7,15 +7,15 @@ comments: true
 image: https://c2.staticflickr.com/4/3294/2298750408_57553092a6_o.jpg
 ---
 
-In the latest [developer survey of StackOverflow](http://stackoverflow.com/insights/survey/2017/), React is the most loved framework and Javascript is the most popular language.<sup>[1](#footnote1)</sup>
-I hear the words _New Hotness_ thrown a lot. Surprisingly, former Hotness Coffeescript has now been relegated to the most hated list.
+In the latest [developer survey of StackOverflow](http://stackoverflow.com/insights/survey/2017/), React is the most loved framework and JavaScript is the most popular language.<sup>[1](#footnote1)</sup>
+I hear the words _New Hotness_ thrown a lot. Surprisingly, former Hotness CoffeeScript has now been relegated to the most hated list.
 
 Backbone nostalgia aside, it does make me raise a question why most developers today choose to make their web frontend increasingly complex. Should all client side code be
-obligatorily heavy just because the technology is there? Or the hardware can (presumably) handle it? Probably not. But rightly or wrongly it seems that's where we are right now. So in order to be part of the steamroller instead of the road<sup>[2](#footnote2)</sup> I'll attempt to grok a react/redux app by stripping it to its bare essential.
+obligatorily heavy just because the technology is there? Or the hardware can (presumably) handle it? Probably not. But rightly or wrongly it seems that's where we are right now.<br><br>So in order to be part of the steamroller instead of the road,<sup>[2](#footnote2)</sup> I'll attempt to grok a react/redux app by stripping it to its bare essential.
 
 ### ES6 and Babel
 
-Forget about webpack and all the fancy superflous tooling, React at its core is just ES6. And because it's not supported in all browsers yet, we're going to need a transpiler to manage the ES5 translation<sup>[3](#footnote3)</sup>. That would be Babel. You're also not going to be messing with the DOM as far as React is concerned. It has its own virtual DOM<sup>[4](#footnote4)</sup>. So at the very basic, we're going to be using 3 things<sup>[5](#footnote5)</sup>:
+Forget about webpack and all the fancy superfluous tooling, React at its core is just ES6. And because it's not supported in all browsers yet, we're going to need a transpiler to manage the ES5 translation<sup>[3](#footnote3)</sup>. That would be Babel. You're also not going to be messing with the DOM as far as React is concerned. It has its own virtual DOM<sup>[4](#footnote4)</sup>. So at the very basic, we're going to be using 3 things<sup>[5](#footnote5)</sup>:
 
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
@@ -80,7 +80,7 @@ var Hello = React.createClass({
   },
   toggleModal: function() {
     this.setState({
-      showModal: !!!this.state.showModal
+      showModal: !!this.state.showModal
     })
   },
   render: function() {
@@ -106,7 +106,7 @@ Okay, so the State seem to be just a big list of variables that represents vario
 
 ### Redux
 
-Though not in the same developer survey, one of the things that seem to excite a lot of developers (I know) today is Redux. It's basically a souped-up State when React's State is not enough<sup>[8](#footnote8)</sup>. The website tells it better, Redux is a predictable state container for Javascript apps (which has got to be one of the best written product bylines I've seen).
+Though not in the same developer survey, one of the things that seem to excite a lot of developers (I know) today is Redux. It's basically a souped-up State when React's State is not enough<sup>[8](#footnote8)</sup>. The website tells it better, Redux is a predictable state container for JavaScript apps (which has got to be one of the best written product bylines I've seen).
 To be honest, I'm not sure when React State is not enough or when Redux should come in<sup>[9](#footnote9)</sup>. But just for the purposes of illustration, let's see what it takes to convert our trivial app to Redux.
 First, we'll need to load the redux library.
 
@@ -117,9 +117,6 @@ First, we'll need to load the redux library.
 ```
 <script type="text/babel">
   const Hello = React.createClass({
-    getInitialState: function() {
-      return store.getState();
-    },
     toggleModal: function() {
       const { showModal } = store.getState()
       store.dispatch({ type: showModal ? 'HIDE' : 'SHOW' })
