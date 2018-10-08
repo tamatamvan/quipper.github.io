@@ -17,7 +17,7 @@ For the first step of the migration we followed the [Kotlin Gradle guideline](ht
 - implement all of the changes above to all module, since the existing source is consist of multiple modules
 
 ## Existing library problem
-The first problem we encountered is the conflict with the [Lombok](https://projectlombok.org/) library, during compilation it always shows error for any property annotated with ```@Getter```, for this we need to manually remove the annotation and generate the required getter and setter, but still it affected a lot of source code, for this process it took almost 2-3 days (change and review) and during migration we still maintain any unused getter and setter
+The first problem we encountered was a conflict with the [Lombok](https://projectlombok.org/) library during compilation, it always shows error for any property annotated with ```@Getter```. For that reason we need to manually remove the annotation and generate the required getter and setters which consequentially affected a lot of code. The process took almost 2-3 days, and during migration we still maintain the unused getter and setters.
 
 ## Existing java source code
 [Kotlin visibility](https://kotlinlang.org/docs/reference/visibility-modifiers.html) access is different with java, on the existing code some implementation class is designed to be injected, so we have to violate/detour from the existing architecture.
