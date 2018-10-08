@@ -22,4 +22,4 @@ The first problem we encountered was a conflict with the [Lombok](https://projec
 ## Existing java source code
 [Kotlin visibility](https://kotlinlang.org/docs/reference/visibility-modifiers.html) access is different with java and some *implementation classses* from existing code are designed to be injected, so we have to violate/detour from the existing architecture.
 
-Java Nullability, the existing code is using a lot of ```Callback``` mechanism, and since java param/property is nullable by default, on the Kotlin code any property/function that are comming from existing code is nullable unless it proven otherwise.
+With regards to Java Nullability: the existing code is using a lot of ```Callback``` mechanism and since Java param/property is nullable by default, any property/function converted to Kotlin is nullable unless it proven otherwise.
