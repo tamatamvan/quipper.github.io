@@ -9,7 +9,7 @@ comments: true
 Recently Quipper Android migrated from java to Kotlin, let me share some of the issue that we got during migration process:
 
 ## Kotlin gradle configuration/dependencies
-For the first step to migration we follow the [Kotlin Gradle guideline](https://kotlinlang.org/docs/reference/using-gradle.html)
+For the first step of the migration we followed the [Kotlin Gradle guideline](https://kotlinlang.org/docs/reference/using-gradle.html)
 
 - add mavenCentral and kotlin dependecies url
 - add the kotlin plugin and set the kotlin version
