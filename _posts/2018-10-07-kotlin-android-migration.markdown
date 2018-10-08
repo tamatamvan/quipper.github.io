@@ -20,6 +20,6 @@ For the first step of the migration we followed the [Kotlin Gradle guideline](ht
 The first problem we encountered was a conflict with the [Lombok](https://projectlombok.org/) library during compilation, it always shows error for any property annotated with ```@Getter```. For that reason we need to manually remove the annotation and generate the required getter and setters which consequentially affected a lot of code. The process took almost 2-3 days, and during migration we still maintain the unused getter and setters.
 
 ## Existing java source code
-[Kotlin visibility](https://kotlinlang.org/docs/reference/visibility-modifiers.html) access is different with java, on the existing code some implementation class is designed to be injected, so we have to violate/detour from the existing architecture.
+[Kotlin visibility](https://kotlinlang.org/docs/reference/visibility-modifiers.html) access is different with java and some *implementation classses* from existing code are designed to be injected, so we have to violate/detour from the existing architecture.
 
 Java Nullability, the existing code is using a lot of ```Callback``` mechanism, and since java param/property is nullable by default, on the Kotlin code any property/function that are comming from existing code is nullable unless it proven otherwise.
