@@ -11,11 +11,6 @@ Recently Quipper Android migrated from java to Kotlin, let me share some of the 
 ## Kotlin gradle configuration/dependencies
 For the first step of the migration we followed the [Kotlin Gradle guideline](https://kotlinlang.org/docs/reference/using-gradle.html)
 
-- add mavenCentral and kotlin dependecies url
-- add the kotlin plugin and set the kotlin version
-- replace any ```annotationProcessor``` to ```kapt```
-- implement all of the changes above to all module, since the existing source is consist of multiple modules
-
 ## Existing library problem
 The first problem we encountered was a conflict with the [Lombok](https://projectlombok.org/) library during compilation, it always shows error for any property annotated with ```@Getter```. For that reason we need to manually remove the annotation and generate the required getter and setters which consequentially affected a lot of code. The process took almost 2-3 days, and during migration we still maintain the unused getter and setters.
 
