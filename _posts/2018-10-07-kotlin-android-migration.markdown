@@ -113,7 +113,7 @@ class MyFragment : Fragment() {
 
 ```
 
-What Kotlin would look like after more mofications for null safety, notice the `?` operators on objects.
+What Kotlin would look like after more modifications for null safety, notice the `?` operators on objects.
 
 ```kotlin
 class MyActivity : Activity(), Callback {
