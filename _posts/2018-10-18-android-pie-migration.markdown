@@ -27,12 +27,12 @@ On Oreo, ```startService()``` will throw ```IllegalStateException```. This can b
 # Pie Migration
 
 ## Https
-On Pie it is required to use HTTPS for network communication [refer to Oreo Behaviour Changes](https://developer.android.com/about/versions/oreo/android-8.0-changes), so any URL that still use HTTP need to be changed to use HTTPS, Luckily this is only affecting the video URLs and we fixed it by using a String map.
+On Pie it is required to use HTTPS for network communication [refer to Pie Behaviour Changes](https://android-developers.googleblog.com/2018/08/introducing-android-9-pie.html), so any URL that still use HTTP need to be changed to use HTTPS, Luckily this is only affecting the video URLs and we fixed it by using a String map.
 
 # AndroidX
 We migrate the Android-support to the AndroidX Library for a better future compatibility, since the android-support will not receive any update after version 28.
 
-We use the Migrate to AndroidX tools within the Android Studio, the result is quite massive change. We also realized that some of our lib is not use the androidX like: autodispose, support-preferencefragment, etc, for that we perform update and manual change to remove any dependencies to use the android-support library. 
+We use the Migrate to AndroidX tools within the Android Studio, this is causing a quite massive changes. We also realized that some of our lib did not using the androidX, for example: autodispose, support-preferencefragment, etc. For that, we perform updates and manual changes to remove any dependencies to use the android-support library. 
 
-After perform migration the unit test is failed since the robolectric that we use is not compatible with the androidX, for that we update the Robolectric to version 4.1, but still the update process turns out need some changes to the existing unit test since the API to perform Activity mock is changed, for that i use some lib that perform similar with the default Robolectric Support Library Controller, [see this gist](https://gist.github.com/bopbi/0d9b3c41e8241a5f15579c5f072a5ece)
+After performing migration, the Unit Test is failing since the Robolectric that we use is not compatible with the androidX. For that we updated the Robolectric to version 4.1. But it turns out that the update process still need some changes to the existing Unit Test since the API to perform Activity mock is changed. To fix the failed mocking, I used some lib that have similar performance with the default Robolectric Support Library Controller, [see this gist](https://gist.github.com/bopbi/0d9b3c41e8241a5f15579c5f072a5ece) for the detail.
 
