@@ -25,9 +25,9 @@ New Things that i learn:
 - [Mutation Testing](https://en.wikipedia.org/wiki/Mutation_testing) which is a test to validate our unit test (by changing the source code, it will show how the unit test responded to the code change), and one of the lib to perform a Mutation Testing is [pittest](http://pitest.org/) and the source code is also provide an example of pittest usage on the android project
 
 ### 2. Dependency Injection using Dagger2 in multi module projects
-[Slide](https://speakerdeck.com/kgmyshin/android-multi-module-with-dagger)
+[Youtube](https://youtu.be/wN2ZBtqPUz4) - [Slide](https://speakerdeck.com/kgmyshin/android-multi-module-with-dagger)
 
-* please note that on this talks the DI is using Dagger Android support (that use ```@ContributesANdroidInjector```)
+* please note that on this talks the DI is using Dagger Android support (that use ```@ContributesAndroidInjector```)
 
 On this talks the speaker showed me that on a Monolithic app, the steps to implement DI using Dagger is divided into:
 1. Module Declaration
@@ -61,14 +61,33 @@ the speaker also shared a glimpse about how we can use the Dynamic Injection wit
 * the code in the slide is quite detail so even a non japanese will understand about what the it means
 
 ### 3. The GREATEST usecase ever! an answer to defining business logic
-[Youtube](https://youtu.be/bw8bckLSKiM) - [Slide](https://speakerdeck.com/kiuchikeisuke/bokufalsekangaetazui-qiang-falseusecasefalsezuo-rifang-aruihabizinesurozitukutohananikatoiu1tufalsehui-da)
+[Youtube](https://youtu.be/bw8bckLSKiM) - [Slide](https://speakerdeck.com/kiuchikeisuke/bokufalsekangaetazui-qiang-falseusecasefalsezuo-rifang-aruihabizinesurozitukutohananikatoiu1tufalsehui-da) - [Code](https://github.com/kiuchikeisuke/RakutenCall)
 
+On this talks the speaker sharing his experience about the difference on Business Logic, and a Use Case when work on an App (Rakuten Call).
+The Speaker think that a Business Logic is a Specification that are known by the Business Team, and the Use Case are a Business Logic that are splitted by Case, so a Use Case can be decided when discussing with the Business Team
+
+On the provided code i learn that:
+- The Business Logic and The Use Case are possible to extends the same Class
+- The Business Logic is use to define the whole flow
+- Use Case is set as a Constraint Logic
+- The Package Groupping is different between Use Case and Business Logic although it extends the same class, so package groupping is important
 
 ### 4. The good and bad of modern app architecture
 [Youtube](https://youtu.be/0gEwwXSmbww) - [Slide](https://www.slideshare.net/fast-retailing/the-good-and-bad-of-modern-app-architecture)
 
+The speaker shared his experience when implementing a modern app architecture (Layered Components), he shared some stories about the decisions like
+The Good:
+
+The Bad:
+
 ### 5. Grid systems and Android
 [Youtube](https://youtu.be/wt0_AWInokY) - [Slide](https://speakerdeck.com/soham/grid-systems-and-android-droidkaigi-2019)
+
+For this talks i learn that:
+- 4dp Grid is used for icon and typography, and the rest should use 8dp Grid
+- Keyline is very important, it helped a lot as a reference Guide to speed up the development process
+- Implement a Responsive design, by using the number of column and combine it with the breakpoint rule
+- Tools to display Grid on the Android, so it can help to provide feedback for the Grid Implementation, like the Keyline Pusing, Material Cue, etc.
 
 ### 6. From Monolithic to Modularized codebase with Dagger
 [Youtube](https://youtu.be/31d1HIw64RI) - [Slide](https://drive.google.com/open?id=1rICcpOK-5ly61KLqkyTlhgvAPKL18OPs)
